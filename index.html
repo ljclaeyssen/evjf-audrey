@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EVJF d'Audrey · Un week-end en Champagne</title>
+<meta name="description" content="Le planning du week-end EVJF d'Audrey — Reims & Champagne, du 17 au 19 juillet 2026." />
+<meta name="theme-color" content="#FBF3E8" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="EVJF d'Audrey — Un week-end en Champagne" />
+<meta property="og:description" content="17 → 19 juillet 2026 · Reims & la Montagne de Reims. Le planning des filles." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Hanken+Grotesk:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+  --cream:#FBF3E8;
+  --cream-2:#F6E9D7;
+  --ivory:#FFFDF9;
+  --gold:#B98A2E;
+  --gold-soft:#D8B562;
+  --gold-line:rgba(185,138,46,.28);
+  --rose:#C97F86;
+  --rose-soft:#E7B7BA;
+  --wine:#6E2A38;
+  --ink:#3B2A26;
+  --muted:#8C766D;
+  --shadow:28px 34px 60px -34px rgba(110,42,56,.34);
+  --shadow-sm:14px 18px 34px -22px rgba(110,42,56,.28);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Hanken Grotesk",-apple-system,sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* ---------- atmosphere ---------- */
+.bg-wash{
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(120% 90% at 12% -10%, rgba(231,183,186,.42), transparent 46%),
+    radial-gradient(120% 100% at 92% 4%, rgba(216,181,98,.34), transparent 50%),
+    radial-gradient(140% 120% at 50% 118%, rgba(110,42,56,.14), transparent 55%);
+}
+.grain{
+  position:fixed; inset:0; z-index:1; pointer-events:none; opacity:.05; mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+#bubbles{position:fixed; inset:0; z-index:2; pointer-events:none; overflow:hidden}
+.bubble{
+  position:absolute; bottom:-40px; border-radius:50%;
+  background:radial-gradient(circle at 32% 30%, rgba(255,255,255,.9), rgba(216,181,98,.5) 55%, rgba(185,138,46,.15) 100%);
+  box-shadow:0 0 10px rgba(216,181,98,.35);
+  animation:rise linear forwards;
+}
+@keyframes rise{
+  0%{transform:translateY(0) translateX(0) scale(.6); opacity:0}
+  8%{opacity:.9}
+  70%{opacity:.8}
+  100%{transform:translateY(-108vh) translateX(var(--drift,20px)) scale(1); opacity:0}
+}
+
+.wrap{position:relative; z-index:3; max-width:860px; margin:0 auto; padding:0 22px}
+
+/* ---------- hero ---------- */
+header.hero{padding:70px 0 34px; text-align:center; position:relative}
+.kicker{
+  font-family:"DM Mono",monospace; font-size:.72rem; letter-spacing:.42em; text-transform:uppercase;
+  color:var(--gold); display:inline-flex; align-items:center; gap:.7em; margin-bottom:24px;
+}
+.kicker::before,.kicker::after{content:""; width:34px; height:1px; background:var(--gold-line)}
+.glass{width:44px; height:44px; margin:0 auto 6px; display:block; opacity:.9}
+.hero h1{
+  font-family:"Fraunces",serif; font-weight:340; font-optical-sizing:auto;
+  font-size:clamp(3.4rem,15vw,7.4rem); line-height:.9; color:var(--wine); letter-spacing:-.02em;
+}
+.hero h1 em{font-style:italic; font-weight:420; color:var(--gold)}
+.hero .evjf{
+  display:block; font-family:"Fraunces",serif; font-style:italic; font-weight:300;
+  font-size:clamp(1rem,4.5vw,1.5rem); color:var(--rose); letter-spacing:.18em; text-transform:uppercase; margin-top:14px;
+}
+.hero .meta{
+  margin-top:26px; font-family:"DM Mono",monospace; font-size:.86rem; letter-spacing:.06em; color:var(--muted);
+}
+.hero .meta b{color:var(--ink); font-weight:500}
+.hero .place{
+  margin-top:6px; font-family:"Fraunces",serif; font-style:italic; font-size:1.05rem; color:var(--ink);
+}
+
+/* ---------- countdown ---------- */
+.countdown{
+  display:flex; justify-content:center; gap:10px; margin:34px auto 8px; flex-wrap:wrap;
+}
+.cd-cell{
+  background:var(--ivory); border:1px solid var(--gold-line); border-radius:16px;
+  padding:12px 6px; min-width:74px; box-shadow:var(--shadow-sm);
+}
+.cd-cell .num{font-family:"Fraunces",serif; font-size:1.9rem; font-weight:420; color:var(--wine); line-height:1}
+.cd-cell .lab{font-family:"DM Mono",monospace; font-size:.6rem; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); margin-top:6px}
+.cd-note{text-align:center; font-family:"Fraunces",serif; font-style:italic; color:var(--rose); font-size:1.15rem; margin-top:6px}
+
+/* ---------- day tabs ---------- */
+.tabs{
+  position:sticky; top:0; z-index:20; padding:14px 0 12px; margin-top:30px;
+  background:linear-gradient(var(--cream) 62%, rgba(251,243,232,0));
+  display:flex; justify-content:center; gap:8px;
+}
+.tab{
+  font-family:"DM Mono",monospace; font-size:.74rem; letter-spacing:.14em; text-transform:uppercase;
+  padding:11px 16px; border:1px solid var(--gold-line); border-radius:999px; background:var(--ivory);
+  color:var(--muted); cursor:pointer; transition:.28s ease; white-space:nowrap;
+}
+.tab .d{display:block; font-family:"Fraunces",serif; font-style:italic; font-size:1rem; text-transform:none; letter-spacing:0; color:var(--ink); margin-top:2px}
+.tab:hover{border-color:var(--gold-soft); transform:translateY(-2px)}
+.tab.active{background:var(--wine); border-color:var(--wine); color:var(--gold-soft); box-shadow:var(--shadow-sm)}
+.tab.active .d{color:#fff}
+
+/* ---------- timeline ---------- */
+main{padding:20px 0 40px}
+.day{display:none}
+.day.show{display:block; animation:fade .5s ease both}
+@keyframes fade{from{opacity:0; transform:translateY(14px)}to{opacity:1; transform:none}}
+
+.day-head{text-align:center; margin:22px 0 30px}
+.day-head h2{font-family:"Fraunces",serif; font-weight:340; font-size:clamp(2rem,9vw,3.1rem); color:var(--wine); font-style:italic}
+.day-head span{font-family:"DM Mono",monospace; font-size:.72rem; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); display:block; margin-top:4px}
+
+.line{position:relative; padding-left:34px}
+.line::before{content:""; position:absolute; left:9px; top:6px; bottom:6px; width:2px;
+  background:linear-gradient(var(--gold-soft),var(--rose-soft),transparent)}
+
+.item{position:relative; margin-bottom:20px; opacity:0; transform:translateY(18px)}
+.item.in{opacity:1; transform:none; transition:.6s cubic-bezier(.2,.7,.2,1)}
+.item::before{content:""; position:absolute; left:-31px; top:8px; width:14px; height:14px; border-radius:50%;
+  background:var(--ivory); border:2px solid var(--gold); box-shadow:0 0 0 4px rgba(216,181,98,.16)}
+.item.star::before{background:var(--rose); border-color:var(--wine); box-shadow:0 0 0 4px rgba(201,127,134,.22)}
+
+.card{
+  background:var(--ivory); border:1px solid rgba(185,138,46,.14); border-radius:18px;
+  padding:16px 18px; box-shadow:var(--shadow-sm); transition:transform .25s ease, box-shadow .25s ease;
+}
+.card:hover{transform:translateY(-3px); box-shadow:var(--shadow)}
+.time{font-family:"DM Mono",monospace; font-size:.76rem; letter-spacing:.08em; color:var(--gold); font-weight:500}
+.card h3{font-family:"Fraunces",serif; font-weight:430; font-size:1.24rem; color:var(--ink); margin:3px 0 6px; line-height:1.2}
+.card p{font-size:.95rem; color:var(--muted)}
+.card p b{color:var(--ink); font-weight:500}
+.links{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+.pill{
+  display:inline-flex; align-items:center; gap:6px; text-decoration:none;
+  font-family:"DM Mono",monospace; font-size:.68rem; letter-spacing:.06em; text-transform:uppercase;
+  padding:7px 12px; border-radius:999px; border:1px solid var(--gold-line); color:var(--wine);
+  background:linear-gradient(var(--cream),var(--ivory)); transition:.2s ease;
+}
+.pill:hover{border-color:var(--gold-soft); color:var(--gold); transform:translateY(-1px)}
+.pill svg{width:12px; height:12px}
+
+.note{
+  margin:6px 0 20px; padding:14px 16px 14px 18px; border-left:3px solid var(--rose-soft);
+  background:rgba(231,183,186,.14); border-radius:0 14px 14px 0; font-style:italic;
+  font-family:"Fraunces",serif; color:var(--wine); font-size:.98rem;
+}
+
+/* ---------- footer ---------- */
+footer{position:relative; z-index:3; text-align:center; padding:44px 22px 60px}
+footer .fleur{font-size:1.4rem; letter-spacing:.5em; color:var(--gold-soft)}
+footer p{font-family:"Fraunces",serif; font-style:italic; color:var(--muted); margin-top:14px; font-size:1.05rem}
+footer .sig{font-family:"DM Mono",monospace; font-size:.66rem; letter-spacing:.24em; text-transform:uppercase; color:var(--rose); margin-top:16px}
+
+@media (max-width:560px){
+  .tab{padding:9px 12px; font-size:.66rem}
+  .cd-cell{min-width:62px; padding:10px 4px}
+  .cd-cell .num{font-size:1.5rem}
+  .line{padding-left:28px}
+  .item::before{left:-25px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms !important; transition-duration:.001ms !important}
+}
+</style>
+</head>
+<body>
+<div class="bg-wash"></div>
+<div class="grain"></div>
+<div id="bubbles"></div>
+
+<div class="wrap">
+  <header class="hero">
+    <svg class="glass" viewBox="0 0 24 24" fill="none" stroke="#B98A2E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M6 3h12l-1 5a5 5 0 0 1-10 0L6 3Z"/><path d="M12 13v6"/><path d="M8 21h8"/>
+      <circle cx="12" cy="2" r=".6" fill="#B98A2E"/><circle cx="15" cy="4" r=".5" fill="#C97F86"/><circle cx="9" cy="4.5" r=".5" fill="#C97F86"/>
+    </svg>
+    <div class="kicker">Enterrement de vie de jeune fille</div>
+    <h1>Audrey<span class="evjf">on t'emmène bulle&nbsp;! <em>·</em> EVJF</span></h1>
+    <div class="meta"><b>17</b> → <b>19</b> juillet 2026</div>
+    <div class="place">Reims &amp; la Montagne de Reims 🥂</div>
+
+    <div class="countdown" id="cd" aria-label="Compte à rebours">
+      <div class="cd-cell"><div class="num" id="cd-d">–</div><div class="lab">jours</div></div>
+      <div class="cd-cell"><div class="num" id="cd-h">–</div><div class="lab">heures</div></div>
+      <div class="cd-cell"><div class="num" id="cd-m">–</div><div class="lab">min</div></div>
+      <div class="cd-cell"><div class="num" id="cd-s">–</div><div class="lab">sec</div></div>
+    </div>
+    <div class="cd-note" id="cd-note">avant de trinquer&nbsp;!</div>
+  </header>
+</div>
+
+<nav class="tabs" id="tabs">
+  <button class="tab active" data-day="vendredi">Ven <span class="d">Vendredi</span></button>
+  <button class="tab" data-day="samedi">Sam <span class="d">Samedi</span></button>
+  <button class="tab" data-day="dimanche">Dim <span class="d">Dimanche</span></button>
+</nav>
+
+<div class="wrap">
+<main>
+
+  <!-- ================= VENDREDI ================= -->
+  <section class="day show" id="vendredi">
+    <div class="day-head"><h2>Vendredi</h2><span>17 juillet · départ</span></div>
+    <div class="line">
+
+      <div class="item star">
+        <div class="card">
+          <div class="time">17:00</div>
+          <h3>On va chercher Audrey 💛</h3>
+          <p>Être à <b>17h chez Audrey</b>, puis départ de Dunkerque à <b>18h30 grand max</b>.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="card">
+          <div class="time">19:30</div>
+          <h3>Retrouvailles au Bonheur des Dames</h3>
+          <p>Tout le monde se rejoint ici : <b>61bis Rue Achille Pinteaux, 59136 Wavrin</b>.</p>
+          <div class="links">
+            <a class="pill" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=61bis+Rue+Achille+Pinteaux+59136+Wavrin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Itinéraire</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="card">
+          <div class="time">Dodo</div>
+          <h3>Chez LJ ou chez Justine ?</h3>
+          <p><b>2h30</b> de route depuis chez LJ · <b>2h</b> depuis chez Justine. À trancher ensemble !</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="card">
+          <div class="time">Logistique</div>
+          <h3>La question voiture 🚗</h3>
+          <p>Trouver une <b>voiture 6 places</b>… ou partir à <b>2 voitures</b>.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SAMEDI ================= -->
+  <section class="day" id="samedi">
+    <div class="day-head"><h2>Samedi</h2><span>18 juillet · champagne &amp; jeux</span></div>
+    <div class="line">
+
+      <div class="item">
+        <div class="card">
+          <div class="time">07:00</div>
+          <h3>Départ 🌅</h3>
+          <p>On se lève, on charge les voitures, direction la Champagne.</p>
+        </div>
+      </div>
+
+      <div class="item star">
+        <div class="card">
+          <div class="time">10:00 → 14:00</div>
+          <h3>Champagne Marc 🍾</h3>
+          <p>Visite &amp; dégustation. <b>1 Rue du Creux Chemin, 51480 Fleury-la-Rivière</b>.</p>
+          <div class="links">
+            <a class="pill" target="_blank" rel="noopener" href="https://www.reims-tourisme.com/produit/champagne-marc/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>Le domaine</a>
+            <a class="pill" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Champagne+Marc+Fleury-la-Riviere"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Itinéraire</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="card">
+          <div class="time">Après-midi</div>
+          <h3>Rallye Curiocity + Cathédrale + Biscuiterie</h3>
+          <p>Rallye à retirer à <b>l'office de tourisme</b>. On enchaîne jusqu'à la fin d'après-midi.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="card">
+          <div class="time">Fin d'aprem</div>
+          <h3>À l'appartement 🎨</h3>
+          <p>Jeux &amp; ateliers créatifs, on passe tranquillement en mode soirée.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="card">
+          <div class="time">Soir</div>
+          <h3>Apéro dînatoire, resto ou plat préféré d'Audrey</h3>
+          <p>Apéritif dînatoire, le <b>plat préféré d'Audrey</b> à l'appart, ou dîner au resto (Aroma…).</p>
+          <div class="note">On propose l'option aux filles : on cuisine à la maison si ça commence à chiffrer, sinon on file au resto :)</div>
+        </div>
+      </div>
+
+      <div class="item star">
+        <div class="card">
+          <div class="time">Nuit</div>
+          <h3>Soirée au Clos ✨</h3>
+          <p>On termine la journée en beauté.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= DIMANCHE ================= -->
+  <section class="day" id="dimanche">
+    <div class="day-head"><h2>Dimanche</h2><span>19 juillet · caves &amp; grand air</span></div>
+    <div class="line">
+
+      <div class="item">
+        <div class="card">
+          <div class="time">→ 11:00</div>
+          <h3>Brunch à l'appartement 🥐</h3>
+          <p>On prend le temps, brunch tranquille jusque 11h.</p>
+          <div class="note">Même idée qu'hier : maison si c'est plus cool, sinon on sort :)</div>
+        </div>
+      </div>
+
+      <div class="item star">
+        <div class="card">
+          <div class="time">11:30</div>
+          <h3>Visite des Caves Pommery 🍷</h3>
+          <p>Sur Reims, vers 11h30. Champagne Vranken-Pommery.</p>
+          <div class="links">
+            <a class="pill" target="_blank" rel="noopener" href="https://www.ruedesvignerons.com/fr/domaine/1075/champagne-vranken-pommery"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>Réserver</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="card">
+          <div class="time">13:00</div>
+          <h3>Repas · pique-nique au Mont Sinaï ?</h3>
+          <p>Idée déj' : <b>pique-nique au Mont Sinaï</b> avec vue sur la Montagne de Reims.</p>
+          <div class="links">
+            <a class="pill" target="_blank" rel="noopener" href="https://www.parc-montagnedereims.fr/patrimoine-culturel/observatoire-militaire-du-mont-sinai/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20h18"/><path d="M5 20l6-12 4 7 2-3 4 8"/></svg>Le lieu</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="card">
+          <div class="time">15:00</div>
+          <h3>Marche de Verzy vers le Perching Bar</h3>
+          <p>Petite rando au départ du village de Verzy, ~<b>45 min</b> à travers les Faux.</p>
+        </div>
+      </div>
+
+      <div class="item star">
+        <div class="card">
+          <div class="time">15:45</div>
+          <h3>Perching Bar 🌳</h3>
+          <p>Le bar perché dans les arbres — un verre en hauteur.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="card">
+          <div class="time">Retour</div>
+          <h3>Retour aux voitures</h3>
+          <p>~45 min de marche pour redescendre.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="card">
+          <div class="time">Bonus</div>
+          <h3>On prolonge ? 🥂</h3>
+          <p>Direction <b>Épernay</b> (30 min de Reims) ou <b>Pressoria</b> (7 min) pour un tour dans l'Avenue de Champagne… ou retour à la maison.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+</div>
+
+<footer>
+  <div class="fleur">🍾 · 🥂 · 💛</div>
+  <p>Un week-end pour Audrey, avec beaucoup d'amour<br/>(et un peu de champagne).</p>
+  <div class="sig">Les filles · Reims 2026</div>
+</footer>
+
+<script>
+/* ===== legacy vanilla JS — no build, no deps ===== */
+(function () {
+  "use strict";
+
+  /* ---- day tabs ---- */
+  var tabs = document.querySelectorAll(".tab");
+  var days = document.querySelectorAll(".day");
+  function showDay(name) {
+    for (var i = 0; i < days.length; i++) {
+      var is = days[i].id === name;
+      days[i].className = is ? "day show" : "day";
+      if (is) revealItems(days[i]);
+    }
+    for (var j = 0; j < tabs.length; j++) {
+      tabs[j].className = tabs[j].getAttribute("data-day") === name ? "tab active" : "tab";
+    }
+  }
+  for (var t = 0; t < tabs.length; t++) {
+    tabs[t].onclick = function () {
+      showDay(this.getAttribute("data-day"));
+      var top = document.getElementById("tabs").offsetTop;
+      if (window.scrollY > top) window.scrollTo({ top: top, behavior: "smooth" });
+    };
+  }
+
+  /* ---- reveal items on show ---- */
+  function revealItems(section) {
+    var items = section.querySelectorAll(".item");
+    for (var i = 0; i < items.length; i++) {
+      (function (el, delay) {
+        setTimeout(function () { el.className = el.className.replace(" in", "") + " in"; }, delay);
+      })(items[i], 70 * i);
+    }
+  }
+  revealItems(document.getElementById("vendredi"));
+
+  /* ---- countdown to Fri 17 July 2026, 17:00 ---- */
+  var target = new Date(2026, 6, 17, 17, 0, 0).getTime();
+  var dEl = document.getElementById("cd-d"),
+      hEl = document.getElementById("cd-h"),
+      mEl = document.getElementById("cd-m"),
+      sEl = document.getElementById("cd-s"),
+      noteEl = document.getElementById("cd-note");
+  function pad(n) { return n < 10 ? "0" + n : "" + n; }
+  function tick() {
+    var diff = target - new Date().getTime();
+    if (diff <= 0) {
+      dEl.innerHTML = hEl.innerHTML = mEl.innerHTML = sEl.innerHTML = "00";
+      noteEl.innerHTML = "C'est parti&nbsp;! 🥂";
+      return;
+    }
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor((diff % 86400000) / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+    dEl.innerHTML = d; hEl.innerHTML = pad(h); mEl.innerHTML = pad(m); sEl.innerHTML = pad(s);
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  /* ---- rising champagne bubbles ---- */
+  var box = document.getElementById("bubbles");
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function spawn() {
+    var b = document.createElement("div");
+    b.className = "bubble";
+    var size = 5 + Math.random() * 13;
+    b.style.width = size + "px";
+    b.style.height = size + "px";
+    b.style.left = Math.random() * 100 + "vw";
+    b.style.setProperty("--drift", (Math.random() * 80 - 40) + "px");
+    var dur = 7 + Math.random() * 8;
+    b.style.animationDuration = dur + "s";
+    box.appendChild(b);
+    setTimeout(function () { if (b.parentNode) b.parentNode.removeChild(b); }, dur * 1000 + 200);
+  }
+  if (!reduce) {
+    for (var k = 0; k < 8; k++) setTimeout(spawn, k * 500);
+    setInterval(spawn, 900);
+  }
+})();
+</script>
+</body>
+</html>
