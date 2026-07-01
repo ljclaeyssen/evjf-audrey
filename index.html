@@ -484,8 +484,8 @@ footer .sig{font-family:"DM Mono",monospace; font-size:.66rem; letter-spacing:.2
     setTimeout(function () { if (b.parentNode) b.parentNode.removeChild(b); }, dur * 1000 + 200);
   }
   if (!reduce) {
-    for (var k = 0; k < 8; k++) setTimeout(spawn, k * 500);
-    setInterval(spawn, 900);
+    for (var k = 0; k < 22; k++) setTimeout(spawn, k * 160);
+    setInterval(function () { spawn(); spawn(); }, 320);
   }
 })();
 </script>
