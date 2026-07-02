@@ -455,17 +455,17 @@ footer .sig{font-family:"DM Mono",monospace; font-size:.66rem; letter-spacing:.2
 
       <div class="bl-title">À partager sur le groupe</div>
       <ul class="bl">
-        <li><span>Trajet <span class="opt">à répartir</span></span><span class="amt"><span id="amt-trajet">180 €</span> <span class="opt" id="trajet-pp">≈ 30 €/pers</span></span></li>
+        <li><span>Trajet <span class="opt">selon les voitures</span></span><span class="amt"><span id="amt-trajet">180 €</span> <span class="opt" id="trajet-pp">≈ 30 €/pers</span></span></li>
         <li><span>Logement</span><span class="amt">221 € <span class="opt">/ week-end</span></span></li>
       </ul>
 
       <div class="calc">
         <label>Participants<input id="nb-pers" type="number" min="1" step="1" value="6" inputmode="numeric" /></label>
         <label>Voitures<input id="nb-voit" type="number" min="0" step="1" value="2" inputmode="numeric" /></label>
-        <div class="total"><span class="big">≈ <span id="bud-total">—</span> €</span><span class="lab">par personne · hors trajet</span></div>
+        <div class="total"><span class="big">≈ <span id="bud-total">—</span> €</span><span class="lab">par personne · trajet inclus</span></div>
       </div>
 
-      <p class="disclaimer">Hors <b>trajet</b> (90 €/voiture, à répartir selon le découpage des voitures) et hors repas, apéros &amp; bars (samedi soir, Le Clos, brunch, pique-nique, Perching Bar) — en plus selon vos choix. 🥂</p>
+      <p class="disclaimer">Trajet réparti sur le nombre de voitures. Hors repas, apéros &amp; bars (samedi soir, Le Clos, brunch, pique-nique, Perching Bar) — en plus selon vos choix. 🥂</p>
     </div>
   </section>
 
@@ -568,9 +568,9 @@ footer .sig{font-family:"DM Mono",monospace; font-size:.66rem; letter-spacing:.2
   function calcBudget() {
     var nbPers = parseInt(persEl.value, 10); if (!nbPers || nbPers < 1) nbPers = 1;
     var nbVoit = parseInt(voitEl.value, 10); if (isNaN(nbVoit) || nbVoit < 0) nbVoit = 0;
-    var perPerson = FIXED_BASE + pommery + pressoria + (221 / nbPers); // hors trajet voiture
-    totalEl.textContent = Math.round(perPerson);
     var trajet = 90 * nbVoit; // 90 € / voiture
+    var perPerson = FIXED_BASE + pommery + pressoria + (221 / nbPers) + (trajet / nbPers); // trajet inclus
+    totalEl.textContent = Math.round(perPerson);
     trajetEl.textContent = trajet + " €";
     trajetPpEl.textContent = "≈ " + Math.round(trajet / nbPers) + " €/pers";
   }
