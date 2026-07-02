@@ -199,6 +199,8 @@ main{padding:20px 0 40px}
 .calc{display:flex; flex-wrap:wrap; gap:16px 18px; margin-top:22px; align-items:flex-end}
 .calc label{display:flex; flex-direction:column; font-family:"DM Mono",monospace; font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); gap:6px}
 .calc input{width:84px; font-family:"Fraunces",serif; font-size:1.3rem; color:var(--wine); background:var(--cream); border:1px solid var(--gold-line); border-radius:12px; padding:8px 10px; text-align:center; -moz-appearance:textfield}
+.field{display:inline-flex; align-items:center; gap:9px}
+.pfx{font-family:"Fraunces",serif; font-style:italic; font-size:1.1rem; color:var(--wine); white-space:nowrap}
 .calc input:focus{outline:none; border-color:var(--gold-soft); box-shadow:0 0 0 3px rgba(216,181,98,.18)}
 .total{margin-left:auto; text-align:right}
 .total .big{font-family:"Fraunces",serif; font-style:italic; font-size:2.3rem; color:var(--wine); line-height:1}
@@ -424,7 +426,7 @@ footer .sig{font-family:"DM Mono",monospace; font-size:.66rem; letter-spacing:.2
 </main>
 
   <section class="budget">
-    <div class="day-head"><h2>Le budget</h2><span>estimation · par personne</span></div>
+    <div class="day-head"><h2>Le budget</h2><span>par personne · Audrey offerte 💛</span></div>
     <div class="budget-card">
 
       <div class="bl-title">Par personne · fixe</div>
@@ -460,7 +462,7 @@ footer .sig{font-family:"DM Mono",monospace; font-size:.66rem; letter-spacing:.2
       </ul>
 
       <div class="calc">
-        <label>Participants<input id="nb-pers" type="number" min="1" step="1" value="6" inputmode="numeric" /></label>
+        <label>Participants<span class="field"><span class="pfx">Audrey +</span><input id="nb-pers" type="number" min="1" step="1" value="5" inputmode="numeric" /></span></label>
         <label>Voitures<input id="nb-voit" type="number" min="0" step="1" value="2" inputmode="numeric" /></label>
         <div class="total"><span class="big">≈ <span id="bud-total">—</span> €</span><span class="lab">par personne · trajet inclus</span></div>
       </div>
@@ -569,7 +571,9 @@ footer .sig{font-family:"DM Mono",monospace; font-size:.66rem; letter-spacing:.2
     var nbPers = parseInt(persEl.value, 10); if (!nbPers || nbPers < 1) nbPers = 1;
     var nbVoit = parseInt(voitEl.value, 10); if (isNaN(nbVoit) || nbVoit < 0) nbVoit = 0;
     var trajet = 90 * nbVoit; // 90 € / voiture
-    var perPerson = FIXED_BASE + pommery + pressoria + (221 / nbPers) + (trajet / nbPers); // trajet inclus
+    var perActivity = FIXED_BASE + pommery + pressoria;
+    // Audrey ne paie pas : sa part d'activités (×1) est répartie sur les nbPers participants
+    var perPerson = perActivity * (nbPers + 1) / nbPers + (221 + trajet) / nbPers;
     totalEl.textContent = Math.round(perPerson);
     trajetEl.textContent = trajet + " €";
     trajetPpEl.textContent = "≈ " + Math.round(trajet / nbPers) + " €/pers";
