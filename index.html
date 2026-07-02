@@ -458,7 +458,7 @@ footer .sig{font-family:"DM Mono",monospace; font-size:.66rem; letter-spacing:.2
       <div class="bl-title">À partager sur le groupe</div>
       <ul class="bl">
         <li><span>Trajet <span class="opt">selon les voitures</span></span><span class="amt"><span id="amt-trajet">180 €</span> <span class="opt" id="trajet-pp">≈ 30 €/pers</span></span></li>
-        <li><span>Logement</span><span class="amt">221 € <span class="opt">/ week-end</span></span></li>
+        <li><span>Logement</span><span class="amt">256 € <span class="opt">/ week-end</span></span></li>
       </ul>
 
       <div class="calc">
@@ -573,7 +573,7 @@ footer .sig{font-family:"DM Mono",monospace; font-size:.66rem; letter-spacing:.2
     var trajet = 90 * nbVoit; // 90 € / voiture
     var perActivity = FIXED_BASE + pommery + pressoria;
     // Audrey ne paie pas : sa part d'activités (×1) est répartie sur les nbPers participants
-    var perPerson = perActivity * (nbPers + 1) / nbPers + (221 + trajet) / nbPers;
+    var perPerson = perActivity * (nbPers + 1) / nbPers + (256 + trajet) / nbPers;
     totalEl.textContent = Math.round(perPerson);
     trajetEl.textContent = trajet + " €";
     trajetPpEl.textContent = "≈ " + Math.round(trajet / nbPers) + " €/pers";
