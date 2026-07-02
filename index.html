@@ -204,6 +204,7 @@ main{padding:20px 0 40px}
 .total .big{font-family:"Fraunces",serif; font-style:italic; font-size:2.3rem; color:var(--wine); line-height:1}
 .total .lab{font-family:"DM Mono",monospace; font-size:.58rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); display:block; margin-top:6px}
 .disclaimer{margin-top:20px; font-family:"Fraunces",serif; font-style:italic; color:var(--muted); font-size:.92rem; line-height:1.5}
+.disclaimer b{color:var(--wine); font-weight:500}
 
 /* ---------- footer ---------- */
 footer{position:relative; z-index:3; text-align:center; padding:44px 22px 60px}
@@ -454,17 +455,16 @@ footer .sig{font-family:"DM Mono",monospace; font-size:.66rem; letter-spacing:.2
 
       <div class="bl-title">À partager sur le groupe</div>
       <ul class="bl">
-        <li><span>Trajet</span><span class="amt">90 € <span class="opt">/ voiture</span></span></li>
+        <li><span>Trajet <span class="opt">non compté · à répartir</span></span><span class="amt">90 € <span class="opt">/ voiture</span></span></li>
         <li><span>Logement</span><span class="amt">221 € <span class="opt">/ week-end</span></span></li>
       </ul>
 
       <div class="calc">
         <label>Participantes<input id="nb-pers" type="number" min="1" step="1" value="6" inputmode="numeric" /></label>
-        <label>Voitures<input id="nb-voit" type="number" min="0" step="1" value="2" inputmode="numeric" /></label>
-        <div class="total"><span class="big">≈ <span id="bud-total">—</span> €</span><span class="lab">par personne</span></div>
+        <div class="total"><span class="big">≈ <span id="bud-total">—</span> €</span><span class="lab">par personne · hors trajet</span></div>
       </div>
 
-      <p class="disclaimer">Repas, apéros &amp; bars (samedi soir, Le Clos, brunch, pique-nique, Perching Bar) en plus, selon vos choix. 🥂</p>
+      <p class="disclaimer">Hors <b>trajet</b> (90 €/voiture, à répartir selon le découpage des voitures) et hors repas, apéros &amp; bars (samedi soir, Le Clos, brunch, pique-nique, Perching Bar) — en plus selon vos choix. 🥂</p>
     </div>
   </section>
 
@@ -560,12 +560,10 @@ footer .sig{font-family:"DM Mono",monospace; font-size:.66rem; letter-spacing:.2
   var FIXED_BASE = 46.90 + 105 + 5 + 11 + 5.50; // hors Pommery / Pressoria
   var pommery = 30, pressoria = 0;
   var persEl = document.getElementById("nb-pers"),
-      voitEl = document.getElementById("nb-voit"),
       totalEl = document.getElementById("bud-total");
   function calcBudget() {
     var nbPers = parseInt(persEl.value, 10); if (!nbPers || nbPers < 1) nbPers = 1;
-    var nbVoit = parseInt(voitEl.value, 10); if (isNaN(nbVoit) || nbVoit < 0) nbVoit = 0;
-    var perPerson = FIXED_BASE + pommery + pressoria + (221 / nbPers) + (90 * nbVoit / nbPers);
+    var perPerson = FIXED_BASE + pommery + pressoria + (221 / nbPers); // hors trajet voiture
     totalEl.textContent = Math.round(perPerson);
   }
   var pomBtns = document.querySelectorAll("[data-pommery]");
@@ -590,7 +588,6 @@ footer .sig{font-family:"DM Mono",monospace; font-size:.66rem; letter-spacing:.2
     calcBudget();
   };
   persEl.oninput = calcBudget;
-  voitEl.oninput = calcBudget;
   calcBudget();
 })();
 </script>
