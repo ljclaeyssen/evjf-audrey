@@ -172,42 +172,6 @@ main{padding:20px 0 40px}
   font-family:"Fraunces",serif; color:var(--wine); font-size:.98rem;
 }
 
-/* ---------- price badges ---------- */
-.trow{display:flex; justify-content:space-between; align-items:center; gap:10px}
-.price{
-  font-family:"DM Mono",monospace; font-size:.66rem; letter-spacing:.02em; white-space:nowrap;
-  color:var(--wine); background:linear-gradient(var(--cream-2),#F1DBBC);
-  border:1px solid var(--gold-line); border-radius:999px; padding:4px 10px;
-}
-.price.tbd{color:var(--muted); background:rgba(140,118,109,.10); border-color:rgba(140,118,109,.20)}
-.pricelist{font-family:"DM Mono",monospace; font-size:.72rem; color:var(--muted); margin-top:10px; letter-spacing:.01em}
-.pricelist b{color:var(--wine); font-weight:500}
-
-/* ---------- budget ---------- */
-.budget{margin:6px 0 12px}
-.budget-card{background:var(--ivory); border:1px solid var(--gold-line); border-radius:22px; padding:24px 20px; box-shadow:var(--shadow)}
-.bl{list-style:none}
-.bl li{display:flex; justify-content:space-between; align-items:baseline; gap:12px; padding:10px 2px; border-bottom:1px dashed var(--gold-line); font-size:.96rem; color:var(--ink)}
-.bl li:last-child{border-bottom:0}
-.bl li .amt{font-family:"DM Mono",monospace; color:var(--wine); white-space:nowrap}
-.bl .opt{color:var(--muted); font-size:.78rem; font-style:italic}
-.bl-title{font-family:"DM Mono",monospace; font-size:.64rem; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); margin:20px 0 2px}
-.opt-btns{display:inline-flex; gap:6px; margin-left:8px; vertical-align:middle}
-.optb{font-family:"DM Mono",monospace; font-size:.62rem; padding:3px 9px; border-radius:999px; border:1px solid var(--gold-line); background:var(--cream); color:var(--muted); cursor:pointer; transition:.2s ease}
-.optb:hover{border-color:var(--gold-soft)}
-.optb.on{background:var(--wine); color:var(--gold-soft); border-color:var(--wine)}
-.calc{display:flex; flex-wrap:wrap; gap:16px 18px; margin-top:22px; align-items:flex-end}
-.calc label{display:flex; flex-direction:column; font-family:"DM Mono",monospace; font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); gap:6px}
-.calc input{width:84px; font-family:"Fraunces",serif; font-size:1.3rem; color:var(--wine); background:var(--cream); border:1px solid var(--gold-line); border-radius:12px; padding:8px 10px; text-align:center; -moz-appearance:textfield}
-.field{display:inline-flex; align-items:center; gap:9px}
-.pfx{font-family:"Fraunces",serif; font-style:italic; font-size:1.1rem; color:var(--wine); white-space:nowrap}
-.calc input:focus{outline:none; border-color:var(--gold-soft); box-shadow:0 0 0 3px rgba(216,181,98,.18)}
-.total{margin-left:auto; text-align:right}
-.total .big{font-family:"Fraunces",serif; font-style:italic; font-size:2.3rem; color:var(--wine); line-height:1}
-.total .lab{font-family:"DM Mono",monospace; font-size:.58rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); display:block; margin-top:6px}
-.disclaimer{margin-top:20px; font-family:"Fraunces",serif; font-style:italic; color:var(--muted); font-size:.92rem; line-height:1.5}
-.disclaimer b{color:var(--wine); font-weight:500}
-
 /* ---------- footer ---------- */
 footer{position:relative; z-index:3; text-align:center; padding:44px 22px 60px}
 footer .fleur{font-size:1.4rem; letter-spacing:.5em; color:var(--gold-soft)}
@@ -275,7 +239,7 @@ footer .sig{font-family:"DM Mono",monospace; font-size:.66rem; letter-spacing:.2
 
       <div class="item">
         <div class="card">
-          <div class="trow"><span class="time">19:30</span><span class="price">46,90 €/pers</span></div>
+          <div class="time">19:30</div>
           <h3>Retrouvailles au Bonheur des Dames</h3>
           <p>Tout le monde se rejoint ici : <b>61bis Rue Achille Pinteaux, 59136 Wavrin</b>.</p>
           <div class="links">
@@ -302,7 +266,7 @@ footer .sig{font-family:"DM Mono",monospace; font-size:.66rem; letter-spacing:.2
 
       <div class="item star">
         <div class="card">
-          <div class="trow"><span class="time">10:00 → 14:00</span><span class="price">105 €/pers</span></div>
+          <div class="time">10:00 → 14:00</div>
           <h3>Champagne Marc 🍾</h3>
           <p>Visite &amp; dégustation. <b>1 Rue du Creux Chemin, 51480 Fleury-la-Rivière</b>.</p>
           <div class="links">
@@ -314,10 +278,9 @@ footer .sig{font-family:"DM Mono",monospace; font-size:.66rem; letter-spacing:.2
 
       <div class="item">
         <div class="card">
-          <div class="trow"><span class="time">Après-midi</span><span class="price">≈ 21,50 €/pers</span></div>
+          <div class="time">Après-midi</div>
           <h3>Rallye Curiocity + Cathédrale + Biscuiterie</h3>
           <p>Rallye à retirer à <b>l'office de tourisme</b>. On enchaîne jusqu'à la fin d'après-midi.</p>
-          <div class="pricelist">Rallye <b>5 €</b> · Cathédrale <b>11 €</b> · Biscuiterie <b>5,50 €</b></div>
           <div class="links">
             <a class="pill" target="_blank" rel="noopener" href="https://www.reims-tourisme.com/activite/rallye-enigme-curiocity/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>Rallye Curiocity</a>
             <a class="pill" target="_blank" rel="noopener" href="https://www.reims-tourisme.com/produit/visite-guidee-la-cathedrale-notre-dame-merveille-gothique/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6"/><path d="M9 5h6"/><path d="M6 22V11l6-4 6 4v11"/><path d="M10 22v-4a2 2 0 0 1 4 0v4"/></svg>Cathédrale</a>
@@ -328,16 +291,16 @@ footer .sig{font-family:"DM Mono",monospace; font-size:.66rem; letter-spacing:.2
 
       <div class="item">
         <div class="card">
-          <div class="trow"><span class="time">Soir</span><span class="price tbd">à voir</span></div>
+          <div class="time">Soir</div>
           <h3>Apéro dînatoire, resto ou plat préféré d'Audrey</h3>
           <p>Apéritif dînatoire, le <b>plat préféré d'Audrey</b> à l'appart, ou dîner au resto (Aroma…).</p>
-          <div class="note">À trancher si ça commence à chiffrer : on mange à l'appartement, sinon resto :)</div>
+          <div class="note">On décide sur le moment : on mange à l'appartement ou on file au resto :)</div>
         </div>
       </div>
 
       <div class="item star">
         <div class="card">
-          <div class="trow"><span class="time">Nuit</span><span class="price tbd">à voir</span></div>
+          <div class="time">Nuit</div>
           <h3>Soirée au Clos ✨</h3>
           <p>On termine la journée en beauté.</p>
           <div class="links">
@@ -356,16 +319,16 @@ footer .sig{font-family:"DM Mono",monospace; font-size:.66rem; letter-spacing:.2
 
       <div class="item">
         <div class="card">
-          <div class="trow"><span class="time">→ 11:00</span><span class="price tbd">à voir</span></div>
+          <div class="time">→ 11:00</div>
           <h3>Brunch à l'appartement 🥐</h3>
           <p>On prend le temps, brunch tranquille jusque 11h.</p>
-          <div class="note">À trancher si ça commence à chiffrer : on mange à l'appartement, sinon resto :)</div>
+          <div class="note">On décide sur le moment : on mange à l'appartement ou on file au resto :)</div>
         </div>
       </div>
 
       <div class="item star">
         <div class="card">
-          <div class="trow"><span class="time">11:30</span><span class="price">30–38 €/pers</span></div>
+          <div class="time">11:30</div>
           <h3>Visite des Caves Pommery 🍷</h3>
           <p>Sur Reims, vers 11h30. Champagne Vranken-Pommery.</p>
           <div class="links">
@@ -376,7 +339,7 @@ footer .sig{font-family:"DM Mono",monospace; font-size:.66rem; letter-spacing:.2
 
       <div class="item">
         <div class="card">
-          <div class="trow"><span class="time">13:00</span><span class="price tbd">à voir</span></div>
+          <div class="time">13:00</div>
           <h3>Repas · pique-nique au Mont Sinaï ?</h3>
           <p>Idée déj' : <b>pique-nique au Mont Sinaï</b> avec vue sur la Montagne de Reims.</p>
           <div class="links">
@@ -395,7 +358,7 @@ footer .sig{font-family:"DM Mono",monospace; font-size:.66rem; letter-spacing:.2
 
       <div class="item star">
         <div class="card">
-          <div class="trow"><span class="time">15:45</span><span class="price tbd">à voir</span></div>
+          <div class="time">15:45</div>
           <h3>Perching Bar 🌳</h3>
           <p>Le bar perché dans les arbres — un verre en hauteur.</p>
           <div class="links">
@@ -414,7 +377,7 @@ footer .sig{font-family:"DM Mono",monospace; font-size:.66rem; letter-spacing:.2
 
       <div class="item">
         <div class="card">
-          <div class="trow"><span class="time">Bonus</span><span class="price">Pressoria 18 €/pers</span></div>
+          <div class="time">Bonus</div>
           <h3>On prolonge ? 🥂</h3>
           <p>Direction <b>Épernay</b> (30 min de Reims) ou <b>Pressoria</b> (7 min) pour un tour dans l'Avenue de Champagne… ou retour à la maison.</p>
           <div class="links">
@@ -427,53 +390,6 @@ footer .sig{font-family:"DM Mono",monospace; font-size:.66rem; letter-spacing:.2
   </section>
 
 </main>
-
-  <section class="budget">
-    <div class="day-head"><h2>Le budget</h2><span>par personne · Audrey offerte 💛</span></div>
-    <div class="budget-card">
-
-      <div class="bl-title">Par personne · fixe</div>
-      <ul class="bl">
-        <li><span>Au Bonheur des Dames</span><span class="amt">46,90 €</span></li>
-        <li><span>Champagne Marc</span><span class="amt">105 €</span></li>
-        <li><span>Rallye Curiocity</span><span class="amt">5 €</span></li>
-        <li><span>Cathédrale</span><span class="amt">11 €</span></li>
-        <li><span>Biscuiterie Fossier</span><span class="amt">5,50 €</span></li>
-        <li>
-          <span>Caves Pommery
-            <span class="opt-btns">
-              <button type="button" class="optb on" data-pommery="30">Libre 30€</button>
-              <button type="button" class="optb" data-pommery="38">Guidée 38€</button>
-            </span>
-          </span>
-          <span class="amt" id="amt-pommery">30 €</span>
-        </li>
-        <li>
-          <span>Pressoria <span class="opt">optionnel</span>
-            <span class="opt-btns">
-              <button type="button" class="optb" id="btn-pressoria">Ajouter +18€</button>
-            </span>
-          </span>
-          <span class="amt" id="amt-pressoria">—</span>
-        </li>
-      </ul>
-
-      <div class="bl-title">À partager sur le groupe</div>
-      <ul class="bl">
-        <li><span>Trajet <span class="opt">selon les voitures</span></span><span class="amt"><span id="amt-trajet">180 €</span> <span class="opt" id="trajet-pp">≈ 30 €/pers</span></span></li>
-        <li><span>Logement</span><span class="amt">256 € <span class="opt">/ week-end</span></span></li>
-      </ul>
-
-      <div class="calc">
-        <label>Participants<span class="field"><span class="pfx">Audrey +</span><input id="nb-pers" type="number" min="1" step="1" value="5" inputmode="numeric" /></span></label>
-        <label>Voitures<input id="nb-voit" type="number" min="0" step="1" value="2" inputmode="numeric" /></label>
-        <div class="total"><span class="big">≈ <span id="bud-total">—</span> €</span><span class="lab">par personne · trajet inclus</span></div>
-      </div>
-
-      <p class="disclaimer">Trajet réparti sur le nombre de voitures. Hors repas, apéros &amp; bars (samedi soir, Le Clos, brunch, pique-nique, Perching Bar) — en plus selon vos choix. 🥂</p>
-    </div>
-  </section>
-
 </div>
 
 <footer>
@@ -561,50 +477,6 @@ footer .sig{font-family:"DM Mono",monospace; font-size:.66rem; letter-spacing:.2
     for (var k = 0; k < 22; k++) setTimeout(spawn, k * 160);
     setInterval(function () { spawn(); spawn(); }, 320);
   }
-
-  /* ---- budget calculator ---- */
-  var FIXED_BASE = 46.90 + 105 + 5 + 11 + 5.50; // hors Pommery / Pressoria
-  var pommery = 30, pressoria = 0;
-  var persEl = document.getElementById("nb-pers"),
-      voitEl = document.getElementById("nb-voit"),
-      totalEl = document.getElementById("bud-total"),
-      trajetEl = document.getElementById("amt-trajet"),
-      trajetPpEl = document.getElementById("trajet-pp");
-  function calcBudget() {
-    var nbPers = parseInt(persEl.value, 10); if (!nbPers || nbPers < 1) nbPers = 1;
-    var nbVoit = parseInt(voitEl.value, 10); if (isNaN(nbVoit) || nbVoit < 0) nbVoit = 0;
-    var trajet = 90 * nbVoit; // 90 € / voiture
-    var perActivity = FIXED_BASE + pommery + pressoria;
-    // Audrey ne paie pas : sa part d'activités (×1) est répartie sur les nbPers participants
-    var perPerson = perActivity * (nbPers + 1) / nbPers + (256 + trajet) / nbPers;
-    totalEl.textContent = Math.round(perPerson);
-    trajetEl.textContent = trajet + " €";
-    trajetPpEl.textContent = "≈ " + Math.round(trajet / nbPers) + " €/pers";
-  }
-  var pomBtns = document.querySelectorAll("[data-pommery]");
-  for (var p = 0; p < pomBtns.length; p++) {
-    pomBtns[p].onclick = function () {
-      pommery = parseFloat(this.getAttribute("data-pommery"));
-      for (var q = 0; q < pomBtns.length; q++) pomBtns[q].className = "optb";
-      this.className = "optb on";
-      document.getElementById("amt-pommery").textContent = pommery + " €";
-      calcBudget();
-    };
-  }
-  var pressBtn = document.getElementById("btn-pressoria");
-  pressBtn.onclick = function () {
-    if (pressoria) {
-      pressoria = 0; this.className = "optb"; this.textContent = "Ajouter +18€";
-      document.getElementById("amt-pressoria").textContent = "—";
-    } else {
-      pressoria = 18; this.className = "optb on"; this.textContent = "Retirer −18€";
-      document.getElementById("amt-pressoria").textContent = "18 €";
-    }
-    calcBudget();
-  };
-  persEl.oninput = calcBudget;
-  voitEl.oninput = calcBudget;
-  calcBudget();
 })();
 </script>
 </body>
